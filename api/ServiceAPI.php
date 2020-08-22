@@ -12,7 +12,7 @@ class ServiceAPI {
   }
 
   function request($endpoint = null, $params = null) {
-    $uri = "https://www.cepaberto.com/api/v3/". $endpoint . "?". $endpoint . "=" . $params;
+    $uri = "https://www.cepaberto.com/api/v3/". $endpoint . "?". $params;
 
     if (!empty($params)){
       $ch = curl_init();
@@ -33,37 +33,36 @@ class ServiceAPI {
         
   } 
 
-  function getCep($cep){
-    $data = $this->request('cep', $cep);
-
-    if (!empty($data)){
-      return $data;
+  function getCep($cep = null){
+    
+    $params = 'cep='. $cep;
+    
+    if (!empty($cep)){
+      return $this->request('cep', $params);
     }
     
   }
 
-  function getAddress($address){
-    
-    $array = [
-      "estado" => "RS",
-      "cidade" => "Flores da Cunha",
-    ];
+  function getAddress($address = null){
 
-    if (is_array($array)){
-      foreach ($array as $tipkey => $value){
+    if (is_array($address)){
+      foreach ($address as $tipkey => $value){
         if (empty($value)) continue;
-        $address .= $tipkey . '=' . urldecode($value) . '&';
+        $link .= $tipkey . '=' . urlencode($value) . '&';
       }
     }
 
-    $params = substr($address, 0, -1);
-    $data = $this->request('address', $params);
+    $params = substr($link, 0, -1);
+    
+    if (!empty($params)){
+      return $this->request('address', $params);
+    } else {
+      $this->error = true;
+      return false;
+    }
     
   }
 
 }
-
-$api = new ServiceAPI(API_KEY);
-echo $api->getAddress('97950000');
 
 ?>
