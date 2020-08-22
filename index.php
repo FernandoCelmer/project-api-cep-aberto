@@ -5,48 +5,48 @@
 
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="generator" content="Jekyll v4.1.1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>indexoffy-api-cep-aberto</title>
 
-      <?php include("template/design.php");?>
-    
-  </head>
-  <body>
+    <?php include("template/design.php");?>
+  
+</head>
+<body class="hold-transition layout-top-nav">
+    <div class="wrapper">
 
-      <?php include("template/header.php");?>
-
-      <main role="main">
-
+        <?php include("template/header.php");?>
         <?php include("template/content-top.php");?>
 
-        <?php
+        <div class="content">
+            <div class="container">
 
-          $array = [
-              "estado" => "RS",
-              "cidade" => "Flores da Cunha",
-            ];
+            <?php
 
-          $api = new ServiceAPI(API_KEY);
-          $local = $api->getAddress($array);
+              $array = [
+                  "estado" => "RS",
+                  "cidade" => "Flores da Cunha",
+                ];
 
-          foreach ($array as $local) {
-            echo "<br> " . $local;
-          }
+              $api = new ServiceAPI(API_KEY);
+              $local = $api->getAddress($array);
 
-        ?>
+              foreach ($array as $local) {
+                echo "<br> " . $local;
+              }
 
-    </main>
+            ?>
 
-    <?php include("template/footer.php");?>
+            </div>
+        </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="packages/bootstrap/bootstrap.bundle.min.js"></script>
-
-  </body>
+    </div>
+        <?php include("template/footer.php");?>
+    </div>
+        <?php include("template/scripts.php");?>
+    </body>
 </html>
