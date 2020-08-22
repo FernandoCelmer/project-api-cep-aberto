@@ -14,3 +14,9 @@
       font-size: 3.5rem;
     }
   }
+
+a {
+  color: #000000;
+  text-decoration: none;
+  background-color: transparent;
+}
