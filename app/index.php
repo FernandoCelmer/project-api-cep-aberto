@@ -1,5 +1,4 @@
 <?php
-header('Content-Type: text/html; charset=utf-8');
 
 require_once "../api/config/config.php";
 require_once "../api/ServiceAPI.php";
@@ -41,7 +40,6 @@ class App{
     }
 
     public function getCep($param){
-
         $api = new ServiceAPI(API_KEY);
         $local = $api->getCep($param);
 
@@ -49,12 +47,12 @@ class App{
     }
 
     public function getAddress($param){
-        
         $api = new ServiceAPI(API_KEY);
         $local = $api->getAddress($param);
 
         return $local;
     }
+
 }
 
 $api = new App();
