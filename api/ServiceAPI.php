@@ -44,6 +44,7 @@ class ServiceAPI {
   }
 
   function getAddress($address = null){
+    $link = [];
 
     if (is_array($address)){
       foreach ($address as $tipkey => $value){
