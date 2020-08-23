@@ -2,19 +2,20 @@
 
 class ServiceAPI {
 
-    private $key = 'Token';
+    private $key = 'Your_Access_Token';
     private $error = false;
 
+    // Function responsible for making requests in the API and returning the information in json.
     function request($uri, $request) {
 
         if (!empty($uri)){
             $ch = curl_init();
             $timeout = 5;
-            curl_setopt ($ch, CURLOPT_HTTPHEADER, array('Authorization: ' . $this->key));
-            curl_setopt ($ch, CURLOPT_URL, $uri);
+            curl_setopt ($ch, CURLOPT_HTTPHEADER, array('Authorization: ' . $this->key)); // Access token for request.
+            curl_setopt ($ch, CURLOPT_URL, $uri); // Request URL.
             curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
-            curl_setopt ($ch, CURLOPT_CUSTOMREQUEST, $request);
+            curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout); // Limit time.
+            curl_setopt ($ch, CURLOPT_CUSTOMREQUEST, $request); // HTPP Request Type.
             $file_contents = curl_exec($ch);
             curl_close($ch);
     
@@ -27,6 +28,7 @@ class ServiceAPI {
 
     } 
 
+    // Preparation of parameters and URL for searching zip codes.
     function getCep(){
         
         $request = "GET";
@@ -39,6 +41,7 @@ class ServiceAPI {
         
     }
 
+    // Preparation of parameters and URL for search of Addresses.
     function getAddress(){
 
         $link = null;
@@ -67,6 +70,7 @@ class ServiceAPI {
     
     }
 
+    // Preparation of parameters and URL for listing cities in a state.
     function getCities(){
       
         $request = "GET";
@@ -79,12 +83,15 @@ class ServiceAPI {
     }
 
 }
-
+    /*===============================TEST================================*/
+    
     $api = new ServiceAPI();
     echo "<p style='color: #062cfb'>getCep </p>" . $api->getCep();
     sleep(1);
     echo "<p style='color: #062cfb'>getAddress </p>" . $api->getAddress();
     sleep(1);
     echo "<p style='color: #062cfb'>getCities </p>" . $api->getCities();
+
+    /*===============================TEST================================*/
 
 ?>
