@@ -2,7 +2,7 @@
 
 class ServiceAPI {
 
-    private $key = 'Token token=4b74202648417dddfb447dec6559f03b';
+    private $key = 'Your_Access_Token';
     private $error = false;
 
     // Function responsible for making requests in the API and returning the information in json.
