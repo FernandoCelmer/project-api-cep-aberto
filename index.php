@@ -55,7 +55,6 @@
                       <div class="card-header">
                         <h3 class="card-title">GET Endereço</h3>
                       </div>
-                      <form role="form">
                         <div class="card-body">
                             <div class="input-group input-group">
                                 <select class="form-control form-control-lg" disabled>
@@ -88,13 +87,12 @@
                                     <option value="TO">Tocantins</option>
                                     <option value="DF">Distrito Federal</option>
                                 </select>
-                                <input class="form-control form-control-lg" placeholder="Cidade" disabled>
+                                <input class="form-control form-control-lg" type="text" id="citie" placeholder="Cidade" disabled>
                                 <div class="input-group-append">
-                                    <button class="btn btn-primary" type="submit" disabled><i class="fa fa-search"></i></button>
+                                    <button class="btn btn-primary btn-pesquisar-address" type="submit" disabled><i class="fa fa-search"></i></button>
                                 </div>
                             </div>
                         </div>
-                      </form>
                     </div>
                   </div>
                 </div>
@@ -124,30 +122,38 @@
     <script>
 
       $(() => {
-          $(".btn-pesquisar-cep").on("click", function(){             
-            var param = $("#cep").val();  
+        $(".btn-pesquisar-cep").on("click", function(){             
+          var param = $("#cep").val();  
 
-            $.ajax({
-                type: 'POST',
-                dataType: 'json',
-                url: 'app/index.php',
-                async: true,
-                data: {
-                  param: param,
-                  tip: "cep"},
-                success: function(response){
-                  console.log(response);
-                  
-                  var texto = JSON.stringify(response);
-                  const local = document.querySelector("#local")
-                  local.innerHTML = texto
+          $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: 'app/index.php',
+            async: true,
+            data: {
+              param: param,
+              tip: "cep"},
+              success: function(response){
+                console.log(response);
+              
+                var texto = JSON.stringify(response);
+                const local = document.querySelector("#local")
+                local.innerHTML = texto
 
-                }
-            }
-            );
+              }
+          }
+          );
 
-          })
-      });
+        })
+    });
+
+    $(() => {
+      $(".btn-pesquisar-address").on("click", function(){             
+        var param = $("#citie").val(); 
+        alert(param);
+      })
+    });
+
     </script>
 
 </html>
