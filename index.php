@@ -16,7 +16,7 @@
     <?php include("template/design.php");?>
   
 </head>
-<body class="hold-transition layout-top-nav">
+    <body class="hold-transition layout-top-nav">
     <div class="wrapper">
 
         <?php include("template/header.php");?>
@@ -26,20 +26,20 @@
             <div class="container">
 
             <div class="col-12">
-              <div class="callout callout-info d-none">
-                  <h5><i class="fa fa-info"></i> Note:</h5>
-                  ...
-              </div>
+                <div class="callout callout-info d-none">
+                    <h5><i class="fa fa-info"></i> Note:</h5>
+                    ...
+                </div>
             </div>
 
             <section class="content">
-              <div class="container-fluid">
+                <div class="container-fluid">
                 <div class="row">
-                  <div class="col-md-6">
+                    <div class="col-md-6">
                     <div class="card card-primary">
-                      <div class="card-header">
+                        <div class="card-header">
                         <h3 class="card-title">GET Cep</h3>
-                      </div>
+                        </div>
                         <div class="card-body">
                             <div class="input-group input-group">
                                 <input class="form-control form-control-lg" type="text" id="cep" placeholder="CEP">
@@ -49,12 +49,12 @@
                             </div>
                         </div>
                     </div>
-                  </div>
-                  <div class="col-md-6">
+                    </div>
+                    <div class="col-md-6">
                     <div class="card card-warning">
-                      <div class="card-header">
+                        <div class="card-header">
                         <h3 class="card-title">GET Endereço</h3>
-                      </div>
+                        </div>
                         <div class="card-body">
                             <div class="input-group input-group">
                                 <select class="form-control form-control-lg" disabled>
@@ -94,10 +94,10 @@
                             </div>
                         </div>
                     </div>
-                  </div>
+                    </div>
                 </div>
 
-              <div class="card card-secondary">
+                <div class="card card-secondary">
                 <div class="card-header">
                     <h3 class="card-title">Informações</h3>
                 </div>
@@ -105,9 +105,9 @@
                     <strong><i class="fa fa-file-code-o mr-1"></i>Json</strong>
                     <p class="json" id="local"></p>
                 </div>
-              </div>
+                </div>
 
-              </div>
+                </div>
             </section>
 
             </div>
@@ -121,37 +121,36 @@
 
     <script>
 
-      $(() => {
-        $(".btn-pesquisar-cep").on("click", function(){             
-          var param = $("#cep").val();  
+        $(() => {
+            $(".btn-pesquisar-cep").on("click", function(){             
+                var param = $("#cep").val();  
 
-          $.ajax({
-            type: 'POST',
-            dataType: 'json',
-            url: 'app/index.php',
-            async: true,
-            data: {
-              param: param,
-              tip: "cep"},
-              success: function(response){
-                console.log(response);
-              
-                var texto = JSON.stringify(response);
-                const local = document.querySelector("#local")
-                local.innerHTML = texto
+                $.ajax({
+                    type: 'POST',
+                    dataType: 'json',
+                    url: 'app/index.php',
+                    async: true,
+                    data: {
+                        param: param,
+                        tip: "cep"},
+                        success: function(response){
+                        console.log(response);
+                    
+                        var texto = JSON.stringify(response);
+                        const local = document.querySelector("#local")
+                        local.innerHTML = texto
+                    }
+                }
+                );
 
-              }
-          }
-          );
-
-        })
+            })
     });
 
     $(() => {
-      $(".btn-pesquisar-address").on("click", function(){             
-        var param = $("#citie").val(); 
-        alert(param);
-      })
+        $(".btn-pesquisar-address").on("click", function(){             
+            var param = $("#citie").val(); 
+            alert(param);
+        })
     });
 
     </script>
