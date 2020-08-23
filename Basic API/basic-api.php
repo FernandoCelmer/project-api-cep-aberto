@@ -52,9 +52,9 @@ class ServiceAPI {
         );
 
         if (is_array($params)){
-            foreach ($params as $tipkey => $value){
+            foreach ($params as $type_key => $value){
                 if (empty($value)) continue;
-                $link .= $tipkey . '=' . urlencode($value) . '&';
+                $link .= $type_key . '=' . urlencode($value) . '&';
             }
         }
 

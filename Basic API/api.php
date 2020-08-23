@@ -2,7 +2,7 @@
 
 class ServiceAPI {
 
-    private $key = 'Your_Access_Token';
+    private $key = 'Token token=4b74202648417dddfb447dec6559f03b';
     private $error = false;
 
     // Function responsible for making requests in the API and returning the information in json.
@@ -51,9 +51,9 @@ class ServiceAPI {
         );
 
         if (is_array($params)){
-            foreach ($params as $tipkey => $value){
+            foreach ($params as $type_key => $value){
                 if (empty($value)) continue;
-                $link .= $tipkey . '=' . urlencode($value) . '&';
+                $link .= $type_key . '=' . urlencode($value) . '&';
             }
         }
 
