@@ -20,3 +20,9 @@ a {
   text-decoration: none;
   background-color: transparent;
 }
+
+.json {
+  background: #000000;
+  color: #349a1a;
+  padding: 10px;
+}
