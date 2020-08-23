@@ -2,7 +2,7 @@
 
 class ServiceAPI {
 
-    private $key = 'Token token=4b74202648417dddfb447dec6559f03b';
+    private $key = 'Token';
     private $error = false;
 
     function request($uri, $request) {
