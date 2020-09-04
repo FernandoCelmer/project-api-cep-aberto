@@ -5,7 +5,7 @@ class ServiceAPI {
     private $key = 'Your_Access_Token';
 
     // Function responsible for making requests in the API and returning the information in json.
-    function request($uri, $type_request) {
+    function request($uri) {
         if (!empty($uri)){
             try {
                 $request = curl_init();
@@ -13,7 +13,6 @@ class ServiceAPI {
                 curl_setopt ($request, CURLOPT_URL, $uri); // Request URL.
                 curl_setopt ($request, CURLOPT_RETURNTRANSFER, 1); 
                 curl_setopt ($request, CURLOPT_CONNECTTIMEOUT, 5); // Connect time out.
-                curl_setopt ($request, CURLOPT_CUSTOMREQUEST, $type_request); // HTPP Request Type.
                 $file_contents = curl_exec($request);
                 curl_close($request);
         
@@ -27,19 +26,17 @@ class ServiceAPI {
 
     // Preparation of parameters and URL for searching zip codes.
     function getCep(){
-        $type_request = "GET";
         $params = 'cep=95010000';
         $uri = "https://www.cepaberto.com/api/v3/cep?". $params;
         
         if (!empty($params)){
-            return $this->request($uri, $type_request);
+            return $this->request($uri);
         }
     }
 
     // Preparation of parameters and URL for search of Addresses.
     function getAddress(){
         $link = null;
-        $type_request = "GET";
         $params = array(
             "estado" => "RS",
             "cidade" => "Flores da Cunha",
@@ -55,19 +52,18 @@ class ServiceAPI {
 
             if (!empty($params)){
                 $uri = "https://www.cepaberto.com/api/v3/address?". $params;
-                return $this->request($uri, $type_request);
+                return $this->request($uri);
             }
         }
     }
 
     // Preparation of parameters and URL for listing cities in a state.
     function getCities(){
-        $type_request = "GET";
         $params = 'RS';
         $uri = "https://www.cepaberto.com/api/v3/cities?estado=". $params;
     
         if (!empty($params)){
-            return $this->request($uri, $type_request);
+            return $this->request($uri);
         }
     }
 }
