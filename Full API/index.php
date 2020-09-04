@@ -102,7 +102,7 @@
                     <h3 class="card-title">Informações</h3>
                 </div>
                 <div class="card-body">
-                    <strong><i class="fa fa-file-code-o mr-1"></i>Json</strong>
+                    <strong><i class="fa fa-file-code-o mr-1"></i>Return</strong>
                     <p class="json" id="local"></p>
                 </div>
                 </div>
