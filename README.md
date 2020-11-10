@@ -2,7 +2,7 @@
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/FernandoCelmer/indexoffy-api-cep-aberto) ![GitHub followers](https://img.shields.io/github/followers/FernandoCelmer?label=Fernando%20Celmer&style=social)
 
-#### Abstract: Basic query in the CEP-Aberto project database. 
+#### Abstract: Implementation using the CEP-ABERTO API, which shows information regarding geographic locations according to pre-established parameters such as zip code, city or state.
 
 ## Technologies
 
