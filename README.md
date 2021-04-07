@@ -11,10 +11,10 @@
 
 ## Demo
 
-- Link - http://indexoffy.com/dev/api-cep-aberto/ <br> 
+- Link - <br> 
 
 ## SCREEN - ON 
 ________________________________
 <p>
-<img src="https://github.com/FernandoCelmer/indexoffy-api-cep-aberto/blob/master/indexoffy-api-cep-aberto.png?raw=true">
+<img src="https://github.com/FernandoCelmer/project-api-cep-aberto/blob/master/indexoffy-api-cep-aberto.png?raw=true">
   
